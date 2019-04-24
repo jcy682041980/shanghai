@@ -1,11 +1,10 @@
 package com.tianqiauto.textile.weaving.model.sys;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
@@ -23,7 +22,9 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "sys_heyuehao")
-@EqualsAndHashCode(exclude = {"order","jingsha","weisha"})
+@EqualsAndHashCode(exclude = {"order","jingsha","weisha","gongYi"})
+@ToString(exclude = {"order","jingsha","weisha","gongYi"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Heyuehao {
     /**
      *
@@ -61,11 +62,24 @@ public class Heyuehao {
 
     private String beizhu; //备注
 
+
+    @JsonIgnoreProperties("heyuehao")
+    @OneToOne
+    @JoinColumn(name = "gongyi_id")
+    private GongYi gongYi;
+
+
+    @Column
     @CreatedDate
     private Date createTime;
+    @Column
+    @CreatedBy
     private String  luruRen;
+    @Column
     @LastModifiedDate
     private Date lastModifyTime;
+    @Column
+    @LastModifiedBy
     private String lastModifyRen;
 
 }

@@ -1,10 +1,8 @@
 package com.tianqiauto.textile.weaving.model.sys;
 
-import com.tianqiauto.textile.weaving.model.base.Dict;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianqiauto.textile.weaving.model.base.SheBei;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,6 +19,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "sys_beam_zhizhou_shift")
+@EqualsAndHashCode(exclude = {"zhizhou","heyuehao","jitaihao_zhengjing","jitaihao_jiangsha_shangche","jitaihao_chuanzong","jitaihao_buji"})
+@ToString(exclude = {"zhizhou","heyuehao","jitaihao_zhengjing","jitaihao_jiangsha_shangche","jitaihao_chuanzong","jitaihao_buji"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Beam_ZhiZhou_Shift {
 
     @Id
@@ -30,7 +31,7 @@ public class Beam_ZhiZhou_Shift {
 
     @ManyToOne
     @JoinColumn(name = "zhizhou_id")
-    private Beam_JingZhou zhizhou; //轴
+    private Beam_ZhiZhou zhizhou; //轴
 
 
     @ManyToOne

@@ -1,11 +1,10 @@
 package com.tianqiauto.textile.weaving.model.sys;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianqiauto.textile.weaving.model.base.Dict;
 import com.tianqiauto.textile.weaving.model.base.SheBei;
 import com.tianqiauto.textile.weaving.model.base.User;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,6 +21,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "sys_bugun")
+@EqualsAndHashCode(exclude = {"banci","jitaihao","heyuehao","luoburen","zhiZhou"})
+@ToString(exclude = {"banci","jitaihao","heyuehao","luoburen","zhiZhou"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class BuGun {
 
 
@@ -42,13 +44,17 @@ public class BuGun {
     @JoinColumn(name = "banci_id")
     private Dict banci;
 
-    private Date luobushijian;
+    private Date luobushijian;//落布时间
+
+    private String xuhao;   //日期班次
 
     @ManyToOne
     @JoinColumn(name = "jitai_id")     //预计换轴时间： 查询当前机台轴的上机时间，查询出时间大于上机时间的落布信息+当前机台布辊长度，预测轴剩余经长。
     private SheBei jitaihao;
 
     private Double changdu; //落布长度
+
+    private Double shedingchangdu; //设定长度
 
     @ManyToOne
     @JoinColumn(name = "heyuehao_id")

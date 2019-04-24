@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <div th:replace="/common/links::header"></div>
+        <div th:replace="common/links::header"></div>
         <title>数据字典</title>
     </head>
 
@@ -13,13 +13,13 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">类别名称</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input">
+                            <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input"/>
                         </div>
                     </div>
                     <div class="layui-inline">
                         <label class="layui-form-label">类别编码</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="code" placeholder="请输入" autocomplete="off" class="layui-input">
+                            <input type="text" name="code" placeholder="请输入" autocomplete="off" class="layui-input"/>
                         </div>
                     </div>
                     <div class="layui-inline">
@@ -34,11 +34,12 @@
                 <div style="padding-bottom: 10px;">
                     <div class="layui-btn-group">
                         <button class="layui-btn"><i class="layui-icon">&#xe608;</i> 添加</button>
+                        <button class="layui-btn"><i class="layui-icon">&#xe601;</i> 导出</button>
                         <!--<button class="layui-btn"><i class="layui-icon">&#xe642;</i> 修改</button>-->
                         <!--<button class="layui-btn"><i class="layui-icon">&#xe640;</i> 删除</button>-->
                     </div>
 
-                    <button class="layui-btn layuiadmin-btn-list" id="shou_suo_cxtj" style="position: relative;left: 85%;"><img style="margin-right:0" class="layui-nav-img" src="/images/up.png"></button>
+                    <button class="layui-btn layuiadmin-btn-list" id="shou_suo_cxtj" style="position: absolute;right: 2%;"><img style="margin-right:0" class="layui-nav-img" src="/images/up.png"></button>
                 </div>
                 <table id="table" lay-filter="table"></table>
 
@@ -65,26 +66,26 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">类别名称</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="name" lay-verify="required" placeholder="类别名称" autocomplete="off" class="layui-input">
+                    <input type="text" name="name" lay-verify="required" placeholder="类别名称" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">类别编码</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="code" lay-verify="required" placeholder="类别编码" autocomplete="off" class="layui-input">
+                    <input type="text" name="code" lay-verify="required" placeholder="类别编码" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">是否可编辑</label>
                 <div class="layui-input-inline">
-                    <input type="checkbox" lay-filter="form_edit_switch" id="form_edit_switch" name="fixed" lay-skin="switch" lay-text="是|否">
+                    <input type="checkbox" lay-filter="form_edit_switch" id="form_edit_switch" name="fixed" lay-skin="switch" lay-text="是|否"/>
                 </div>
             </div>
             <div class="layui-form-item layui-hide">
-                <input type="text" name="id">
+                <input type="text" name="id"/>
             </div>
             <div class="layui-form-item layui-hide">
-                <input type="button" lay-submit lay-filter="form_edit_submit" id="form_edit_submit" value="确认">
+                <input type="button" lay-submit lay-filter="form_edit_submit" id="form_edit_submit" value="确认"/>
             </div>
         </div>
     </div>
@@ -93,7 +94,7 @@
 
 
 
-    <div th:replace="/common/links::js_footer"></div>
+    <div th:replace="common/links::js_footer"></div>
     <script>
         layui.config({
             base:"/layuiadmin/" //静态资源所在路径
